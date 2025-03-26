@@ -43,15 +43,17 @@ console.log('isVisible--->> ', isVisible);
     const handlePayment = () => {
         if(!(terms1Ref.current.checked && terms2Ref.current.checked)) {
             alert("약관 동의 후 결제가 진행됩니다.");
-        } else if(member.zipcode === null) { 
-            alert("배송지를 추가해주세요");
-            setIsVisible(!isVisible);
-            deliveryButtonRef.current.focus();
-            deliveryButtonRef.current.style.outline = '3px dotted coral';
-        } else if (detailAddressRef.current.value === "") {
-            alert("상세 주소를 입력해주세요");
-            detailAddressRef.current.focus();
-        } else {
+        } 
+        // else if(member.zipcode === null) { 
+        //     alert("배송지를 추가해주세요");
+        //     setIsVisible(!isVisible);
+        //     deliveryButtonRef.current.focus();
+        //     deliveryButtonRef.current.style.outline = '3px dotted coral';
+        // } else if (detailAddressRef.current.value === "") {
+        //     alert("상세 주소를 입력해주세요");
+        //     detailAddressRef.current.focus();
+        // } 
+        else {
             dispatch(paymentKakaoPay(totalPrice, orderList));
         
         }//if
